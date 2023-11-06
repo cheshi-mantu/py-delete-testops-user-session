@@ -5,7 +5,7 @@ import jwt
 import time
 
 def delete_session(name, r):
-    for key in r.scan_iter("allure:testops:*", 250):
+    for key in r.scan_iter("allure:testops:sessions:*", 250):
         print(key)
         if name in str(key):
             r.delete(key)
