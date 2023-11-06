@@ -8,7 +8,6 @@
 
 `export REDIS_URL=redis://default:<redis_password>@<ip_or_fqdn>:6379"`
 
-
 ## Usage
 
 ```shell

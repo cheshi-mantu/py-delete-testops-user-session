@@ -12,7 +12,7 @@ def delete_session(name, r):
 
 def scan(name):
     r = redis.from_url(os.environ.get("REDIS_URL"))
-    scan_jwt(name, r)
+    delete_session(name, r)
 
 if __name__ == '__main__':
     scan(sys.argv[1])
