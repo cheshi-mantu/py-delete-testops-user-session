@@ -17,9 +17,11 @@ def scan_jwt(name, r, mode):
         except:
             continue
         if user == name:
-            print(key)
-            if mode == "clean":
-                r.delete(key)
+            ttl = r.ttl(key)
+            if ttl == -1 or int(time.time()) >= exp:
+                print(key, ttl, exp, )
+                if mode == "clean":
+                    r.delete(key)
 
 def scan(name, mode):
     print(os.environ.get("REDIS_URL"))
