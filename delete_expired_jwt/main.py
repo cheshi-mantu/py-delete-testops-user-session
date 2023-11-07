@@ -10,10 +10,11 @@ def scan_jwt(name, r, mode):
         print(token)
         try:
             decoded = jwt.decode(token, options={"verify_signature": False})
+            print(decoded)
             user = decoded["sub"]
-            print("user:" + user)
+            # print("user:" + user)
             exp = decoded["exp"]
-            print("expiration:" + exp)
+            # print("expiration:" + exp)
         except:
             continue
         if user == name:
